@@ -11,7 +11,7 @@
 
 
 <ion-content padding>
-  <ion-card>
+  <ion-card [ngClass]="{ 'is-on': appareil.isOn, 'is-off': !appareil.isOn }">
     <ion-card-header>{{ appareil.name }}</ion-card-header>
     <ion-card-content>
       <p *ngFor="let description of appareil.description">{{ description }}</p>

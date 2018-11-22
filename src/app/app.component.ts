@@ -8,6 +8,7 @@ import * as firebase from 'firebase';
 import { TabsPage } from '../pages/tabs/tabs';
 import { OptionsPage } from '../pages/options/options';
 import { AuthPage } from '../pages/auth/auth';
+
 @Component({
   templateUrl: 'app.html'
 })

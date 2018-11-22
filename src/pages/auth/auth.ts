@@ -25,6 +25,7 @@ export class AuthPage implements OnInit
   ngOnInit()
   {
     this.mode = this.navParams.get('mode');
+
     this.initForm();
   }
 
@@ -47,13 +48,13 @@ export class AuthPage implements OnInit
   {
     const email = this.authForm.get('email').value;
     const password = this.authForm.get('password').value;
+
     if (this.mode === 'new')
     {
       this.authService.signUpUser(email, password).then(
         () => {
           this.navCtrl.setRoot(TabsPage);
-        }
-      ).catch(
+        },
         (error) => {
           this.errorMessage = error;
         }
@@ -64,8 +65,7 @@ export class AuthPage implements OnInit
       this.authService.signInUser(email, password).then(
         () => {
           this.navCtrl.setRoot(TabsPage);
-        }
-      ).catch(
+        },
         (error) => {
           this.errorMessage = error;
         }

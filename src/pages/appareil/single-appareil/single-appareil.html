@@ -11,23 +11,24 @@
 
 
 <ion-content padding>
-  <ion-card [ngClass]="{ 'is-on': appareil.isOn, 'is-off': !appareil.isOn }">
+  <ion-card [ngClass]="{ 'is-on': appareil.status === 'allumé', 'is-off': appareil.status === 'éteint' }">
     <ion-card-header>{{ appareil.name }}</ion-card-header>
     <ion-card-content>
+      <p>Statut : {{ appareil.status }}</p>
       <p *ngFor="let description of appareil.description">{{ description }}</p>
     </ion-card-content>
   </ion-card>
   <ion-grid>
     <ion-row>
 
-      <ion-col *ngIf="appareil.isOn">
+      <ion-col *ngIf="appareil.status === 'allumé'">
         <button ion-button
                 full
                 color="danger"
                 (click)="onToggleAppareil()">Eteindre</button>
       </ion-col>
 
-      <ion-col *ngIf="!appareil.isOn">
+      <ion-col *ngIf="appareil.status === 'éteint'">
         <button ion-button
                 full
                 color="secondary"

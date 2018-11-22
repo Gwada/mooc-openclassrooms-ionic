@@ -28,7 +28,7 @@ export class SingleAppareilPage implements OnInit {
   }
 
   onToggleAppareil() {
-    this.appareil.isOn = !this.appareil.isOn;
+    this.appareil.status = this.appareil.status === 'allumé' ? 'éteint' : 'allumé';
   }
 
   onSubmitForm(form: NgForm) {

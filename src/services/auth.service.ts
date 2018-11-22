@@ -10,7 +10,6 @@ export class AuthService
                     (user) => {
                         resolve(user);
                     },
-                ).catch(
                     (error) => {
                         reject(error);
                     }
@@ -27,7 +26,6 @@ export class AuthService
                     (user) => {
                         resolve(user);
                     },
-                ).catch(
                     (error) => {
                         reject(error);
                     }
@@ -36,7 +34,8 @@ export class AuthService
         );
     }
 
-    signOut() {
+    signOut()
+    {
         firebase.auth().signOut();
     }
 }

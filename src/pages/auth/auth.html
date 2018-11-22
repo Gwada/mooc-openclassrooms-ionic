@@ -24,7 +24,7 @@
         <ion-input type="password" formControlName="password"></ion-input>
       </ion-item>
     </ion-list>
-    <button ion-button full (click)="onSubmitForm()" [disabled]="authForm.invalid">Soumettre</button>
+    <button ion-button full (click)="onSubmitForm()" [disabled]="authForm.invalid">{{ mode === 'new' ? "Inscription" : "Connexion" }}</button>
     <span ion-text color="danger">{{ errorMessage }}</span>
   </form>
 </ion-content>

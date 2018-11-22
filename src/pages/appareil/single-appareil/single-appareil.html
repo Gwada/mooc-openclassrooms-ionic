@@ -19,18 +19,54 @@
   </ion-card>
   <ion-grid>
     <ion-row>
+
       <ion-col *ngIf="appareil.isOn">
         <button ion-button
                 full
                 color="danger"
                 (click)="onToggleAppareil()">Eteindre</button>
       </ion-col>
+
       <ion-col *ngIf="!appareil.isOn">
         <button ion-button
                 full
                 color="secondary"
                 (click)="onToggleAppareil()">Allumer</button>
       </ion-col>
+
     </ion-row>
   </ion-grid>
+
+  <form action="" #f="ngForm" (ngSubmit)="onSubmitForm(f)">
+    <ion-list>
+
+      <ion-item>
+        <ion-label>Heure d'allumage</ion-label>
+        <ion-datetime displayFormat="HH:mm"
+                      name="startTime"
+                      [(ngModel)]="appareil.startTime"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Heure d'extinction</ion-label>
+        <ion-datetime displayFormat="HH:mm"
+                      name="endTime"
+                      [(ngModel)]="appareil.endTime"></ion-datetime>
+      </ion-item>
+
+    </ion-list>
+
+    <button type="button"
+            ion-button
+            full
+            color="danger"
+            (click)="onDeleteHours()">Supprimer horaire</button>
+
+    <button type="submit"
+            ion-button 
+            full
+            color="secondary">Enregistrer horaire</button>
+
+  </form>
+
 </ion-content>

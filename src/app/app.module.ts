@@ -12,6 +12,9 @@ import { SettingsPage } from '../pages/settings/settings';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AppareilsServices } from '../services/appareils.service';
 import { OptionsPage } from '../pages/options/options';
+import { AppareilFormPage } from '../pages/appareil/appareil-form/appareil-form';
+import { AuthService } from '../services/auth.service';
+import { AuthPage } from '../pages/auth/auth';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { OptionsPage } from '../pages/options/options';
     SingleAppareilPage,
     SettingsPage,
     TabsPage,
-    OptionsPage
+    OptionsPage,
+    AppareilFormPage,
+    AuthPage
   ],
   imports: [
     BrowserModule,
@@ -35,13 +40,19 @@ import { OptionsPage } from '../pages/options/options';
     SingleAppareilPage,
     SettingsPage,
     TabsPage,
-    OptionsPage
+    OptionsPage,
+    AppareilFormPage,
+    AuthPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AppareilsServices,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    AuthService,
+    {
+      provide: ErrorHandler,
+      useClass: IonicErrorHandler
+    }
   ]
 })
 export class AppModule {}

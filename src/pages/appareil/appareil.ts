@@ -3,6 +3,7 @@ import { ModalController, MenuController } from 'ionic-angular';
 import { SingleAppareilPage } from './single-appareil/single-appareil';
 import { Appareil } from '../../models/Appareils';
 import { AppareilsServices } from '../../services/appareils.service';
+import { AppareilFormPage } from './appareil-form/appareil-form';
 
 @Component({
   selector: 'page-appareil',
@@ -11,6 +12,8 @@ import { AppareilsServices } from '../../services/appareils.service';
 export class AppareilPage {
 
   appareilsList: Appareil[];
+  appareilFormPage = AppareilFormPage;
+
   constructor(private modalCtrl: ModalController,
               private appareilsService: AppareilsServices,
               private menuCtrl: MenuController) {

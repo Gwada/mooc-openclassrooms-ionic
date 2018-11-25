@@ -27,15 +27,10 @@ export class AppareilPage implements OnInit, OnDestroy
   {
     this.appareilsSubscription = this.appareilsService.appareils$.subscribe(
       (appareils: Appareil[]) => {
-        this.appareilsList = appareils.slice();
+        this.appareilsList = appareils;
       }
     );
     this.appareilsService.emitAppareils();
-  }
-
-  ionViewWillEnter()
-  {
-    this.appareilsList = this.appareilsService.appareilsList.slice();
   }
 
   onSaveList() {
@@ -62,7 +57,7 @@ export class AppareilPage implements OnInit, OnDestroy
         this.toastCtrl.create(
           {
             message: error,
-            duration: 5000,
+            duration: 10000,
             position: 'bottom'
           }
         ).present();

@@ -1,5 +1,5 @@
 import { Appareil } from "../models/Appareils";
-import { Subject } from "rxjs/Subject";
+import { Subject } from "rxjs";
 import * as firebase from 'firebase';
 
 export class AppareilsServices

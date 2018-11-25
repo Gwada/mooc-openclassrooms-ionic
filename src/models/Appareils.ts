@@ -1,15 +1,15 @@
 export class Appareil
 {
     description: string[];
-    status: string;
-    startTime: string;
-    endTime: string;
 
-    constructor(public name: string)
+    constructor(public name: string,
+                public startTime?: string,
+                public endTime?: string,
+                public status?: string)
     {
-        this.status = 'éteint';
-        this.startTime = '';
-        this.endTime = '';
         this.description = [];
+        !status ? this.status = 'éteint' : 0;
+        !startTime ? this.startTime = '' : 0;
+        !endTime ? this.endTime = '' : 0;
     }
 }
